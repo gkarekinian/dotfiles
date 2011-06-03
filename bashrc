@@ -7,3 +7,6 @@ source ~/.bash/config
 if [ -f ~/.localrc ]; then
   source ~/.localrc
 fi
+
+ # This loads RVM into a shell session.
+[[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
