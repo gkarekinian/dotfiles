@@ -13,3 +13,8 @@ function parse_git_branch {
 }
 export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
 
+# OS X's ls
+export CLICOLOR="1"
+
+# Opscode platform
+export OPSCODE_USER="gkarekinian"
