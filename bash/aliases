@@ -3,3 +3,17 @@ function c { cd ~/code/$1; }
 
 # misc
 alias reload='. ~/.bash_profile'
+
+# copy opscode cert to current dir's .chef
+function chefcppem { cp ~/.chef/gkarekinian.pem .chef/; }
+
+alias gb="git branch"
+alias gba="git branch -a"
+alias gc="git commit -v"
+alias gd="git diff | mate"
+alias gl="git pull"
+alias gp="git push"
+alias gst="git status"
+
+alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
