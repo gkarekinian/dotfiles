@@ -8,3 +8,6 @@ set visualbell
 " Start without the toolbar
 set guioptions-=T
 
+"" Theme
+set background=dark
+colorscheme solarized

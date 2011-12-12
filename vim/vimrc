@@ -27,7 +27,3 @@ nnoremap <c-l> <c-w>l
 
 "" use comma as <Leader> key instead of backslash
 let mapleader=","
-
-"" Theme
-set background=dark
-colorscheme solarized
