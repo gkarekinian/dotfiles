@@ -26,3 +26,21 @@ if [ "$(which hub)" != '' ]; then
 fi
 
 alias bex="bundle exec"
+
+# Import vim plugin using Pathogen
+function importvimplugin {
+  E_ARG_ERR=65
+
+  if [ -z "$1" ]
+  then
+    echo "Usage: importvimplugin GIT_URL"
+    return $E_ARG_ERR
+  fi  
+
+  url=$1
+  cleaned_up_url=`echo $url | sed -e s/\.git$//g`
+  destination=`basename $cleaned_up_url`
+  
+  cd ~/code/gkarekinian/dotfiles
+  git submodule add $1 vim/bundle/$destination
+}
