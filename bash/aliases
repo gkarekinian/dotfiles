@@ -24,3 +24,5 @@ alias ifconfig.me="curl ifconfig.me"
 if [ "$(which hub)" != '' ]; then
   alias git=hub 
 fi
+
+alias bex="bundle exec"
