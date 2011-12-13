@@ -43,4 +43,5 @@ function importvimplugin {
   
   cd ~/code/gkarekinian/dotfiles
   git submodule add $1 vim/bundle/$destination
+  cd -
 }
