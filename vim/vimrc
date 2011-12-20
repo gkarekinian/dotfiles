@@ -22,6 +22,11 @@ set smartcase                   " ... unless they contain at least one capital l
 "" Line numbers
 set number
 
+" Allow undoing after quitting
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000
+
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -30,3 +35,13 @@ nnoremap <c-l> <c-w>l
 
 "" use comma as <Leader> key instead of backslash
 let mapleader=","
+
+" configure ctrlp
+let g:ctrlp_map = '<Leader>p'                  " keyboard shortcur
+let g:ctrlp_working_path_mode = 2              " set the working dir at the nearest ancestor that contains .git
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so " ignore some files
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files'] " use git to list files (faster)
+
+" autocomplete menu in commands
+set wildmenu
+set wildmode=list:longest
