@@ -7,6 +7,8 @@ IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 
+require 'pp'
+
 %w[rubygems looksee/shortcuts wirble].each do |gem|
   begin
     require gem
@@ -51,4 +53,3 @@ def paste
   `pbpaste`
 end
 
-load File.dirname(__FILE__) + '/.railsrc' if ($0 == 'irb' && ENV['RAILS_ENV']) || ($0 == 'script/rails' && Rails.env)
