@@ -45,5 +45,5 @@ most cases, but you can simply remove the files to flush the cache.
 Credits
 -------
 
-[Ryan Bates](http://github.com/ryanb) for his original dotfiles.
+[Ryan Bates](http://github.com/ryanb) for his original dotfiles. 👍
 
