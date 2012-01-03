@@ -41,8 +41,8 @@ function importvimplugin {
 
   url=$1
   cleaned_up_url=`echo $url | sed -e s/\.git$//g`
-  destination=`basename $cleaned_up_url`
-  
+  destination=`basename $cleaned_up_url | sed 's/^vim\-//g' | sed 's/\.vim$//g'`
+
   cd ~/code/gkarekinian/dotfiles
   git submodule add $1 vim/bundle/$destination
   cd -
