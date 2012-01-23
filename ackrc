@@ -13,9 +13,12 @@ cucumber=.feature
 --type-set
 rdoc=.rdoc
 --ruby
+--rake
 --css
+--html
 --js
 --markdown
 --actionscript
 --objc
 --shell
+--yaml
