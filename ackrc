@@ -3,7 +3,7 @@ ruby=.haml,.builder
 --type-add
 css=.sass,.scss
 --type-add
-js=.coffee
+js=.coffee,.json
 --type-set
 markdown=.markdown,.md,.mdown
 --type-set
