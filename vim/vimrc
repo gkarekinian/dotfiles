@@ -49,3 +49,6 @@ let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files'] " use git to list 
 " autocomplete menu in commands
 set wildmenu
 set wildmode=list:longest
+
+" <Leader> + space clears highlights
+nnoremap <leader><space> :noh<cr>
