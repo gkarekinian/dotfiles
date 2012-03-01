@@ -3,6 +3,7 @@ source ~/.bash/completions
 source ~/.bash/paths
 source ~/.bash/config
 source ~/.bash/node
+source ~/.bash/tmuxinator
 
 # Load chef specific file if it exists
 if [ -f ~/.bash/chef ]; then
