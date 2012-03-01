@@ -52,3 +52,9 @@ set wildmode=list:longest
 
 " <Leader> + space clears highlights
 nnoremap <leader><space> :noh<cr>
+
+" Theme
+" 256 colors term required
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
