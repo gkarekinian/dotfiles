@@ -53,6 +53,9 @@ set wildmode=list:longest
 " <Leader> + space clears highlights
 nnoremap <leader><space> :noh<cr>
 
+" line at 80th character
+set colorcolumn=80
+
 " Theme
 " 256 colors term required
 let g:solarized_termcolors=256
