@@ -1,4 +1,4 @@
-export EDITOR="mvim -f"
+export EDITOR="vim -f"
 
 # Setting for the new UTF-8 terminal support in Lion
 export LC_CTYPE=en_US.UTF-8

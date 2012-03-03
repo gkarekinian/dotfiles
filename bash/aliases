@@ -10,7 +10,7 @@ function chefcppem { cp ~/.chef/gkarekinian.pem .chef/; }
 alias gb="git branch"
 alias gba="git branch -a"
 alias gc="git commit -v"
-alias gd="git diff | mvimdiff -"
+alias gd="git diff | vimdiff -"
 alias gl="git pull"
 alias gp="git push"
 alias gst="git status"
