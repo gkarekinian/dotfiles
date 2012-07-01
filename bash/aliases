@@ -24,7 +24,7 @@ alias ifconfig.me="curl ifconfig.me"
 
 # hub, see http://defunkt.io/hub/
 if [ "$(which hub)" != '' ]; then
-  alias git=hub 
+  alias git=hub
 fi
 
 alias bex="bundle exec"
@@ -37,7 +37,7 @@ function importvimplugin {
   then
     echo "Usage: importvimplugin GIT_URL"
     return $E_ARG_ERR
-  fi  
+  fi
 
   url=$1
   cleaned_up_url=`echo $url | sed -e s/\.git$//g`
