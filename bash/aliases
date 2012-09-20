@@ -13,7 +13,7 @@ alias gc="git commit -v"
 alias gd="git diff | vimdiff -"
 alias gl="git pull"
 alias gp="git push"
-alias gst="git status"
+alias gst="git status -sb"
 
 alias gh="github"
 
