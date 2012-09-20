@@ -20,6 +20,9 @@ export PS1='\u@\h \[\033[37m\]\w\[\033[0m\]$(parse_git_branch)$ '
 # OS X's ls
 export CLICOLOR="1"
 
+# Tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'
+
 # History
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
