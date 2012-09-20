@@ -1,7 +1,17 @@
 source ~/.bash/completion_scripts/git_completion
 complete -C ~/.bash/completion_scripts/rake_completion -o default rake
-complete -C ~/.bash/completion_scripts/project_completion -o default c
 complete -C ~/.bash/completion_scripts/capistrano_completion -o default cap
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
+
+# Autocomplete inside code dir
+# Example:
+#     $ c <tab>
+#     project1        project2
+
+_c() {
+  local cur=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W "$(ls ~/code/)" -- $cur) )
+}
+complete -F _c c
