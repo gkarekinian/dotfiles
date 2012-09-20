@@ -3,14 +3,15 @@
 	email = <%= print("Your Email: "); STDOUT.flush; STDIN.gets.chomp %>
 [alias]
 	co = checkout
+  undo = reset --soft HEAD^
 [color]
 	diff = auto
 	status = auto
 	branch = auto
 [core]
-	excludesfile = <%= ENV['HOME'] %>/.gitignore
-	editor = mate_wait
+	excludesfile = ~/.gitignore
 	autocrlf = input
+  quotepath = false
 [apply]
 	whitespace = nowarn
 [format]
@@ -18,3 +19,5 @@
 [github]
 	user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
 	token = <%= print("GitHub API Token: "); STDOUT.flush; STDIN.gets.chomp %>
+[rerere]
+	enabled = 1
