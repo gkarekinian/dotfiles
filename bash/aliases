@@ -47,3 +47,19 @@ function importvimplugin {
   git submodule add $1 vim/bundle/$destination
   cd -
 }
+
+# from url to being in your clipboard with syntax highlighting
+if [ "$(which pygmentize)" != '' ]; then
+  function colorize_url {
+    E_ARG_ERR=65
+
+    if [ -z "$1" ]
+    then
+      echo "Usage: colorize_url URL"
+      return $E_ARG_ERR
+    fi
+
+    url=$1
+    curl -L $url | pygmentize -g -f rtf | pbcopy
+  }
+fi
