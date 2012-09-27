@@ -57,7 +57,5 @@ nnoremap <leader><space> :noh<cr>
 set colorcolumn=80
 
 " Theme
-" 256 colors term required
-let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
