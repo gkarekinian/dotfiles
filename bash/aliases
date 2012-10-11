@@ -69,5 +69,5 @@ fi
 # as markdown code block
 # WARNING: OS X only
 function to_md_code_block {
-    sed 's/^/\ \ \ \ /' | pbcopy
+  sed 's/^/\ \ \ \ /' | pbcopy
 }
