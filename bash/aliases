@@ -64,3 +64,10 @@ if [ "$(which pygmentize)" != '' ]; then
     curl -L $url | pygmentize -g -f rtf | pbcopy
   }
 fi
+
+# from STDIN to being in your clipboard with four spaces, ready to paste
+# as markdown code block
+# WARNING: OS X only
+function to_md_code_block {
+    sed 's/^/\ \ \ \ /' | pbcopy
+}
