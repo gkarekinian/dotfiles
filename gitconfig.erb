@@ -1,29 +1,28 @@
 [user]
-	name = <%= print("Your Name: "); STDOUT.flush; STDIN.gets.chomp %>
-	email = <%= print("Your Email: "); STDOUT.flush; STDIN.gets.chomp %>
+  name = <%= print("Your Name: "); STDOUT.flush; STDIN.gets.chomp %>
+  email = <%= print("Your Email: "); STDOUT.flush; STDIN.gets.chomp %>
 [alias]
-	co = checkout
+  co = checkout
   undo = reset --soft HEAD^
   up = pull --rebase
   cob = checkout -b
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+  diff = auto
+  status = auto
+  branch = auto
 [core]
-	excludesfile = ~/.gitignore
-	autocrlf = input
+  excludesfile = ~/.gitignore
+  autocrlf = input
   quotepath = false
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
 [format]
-	pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+  pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
 [github]
-	user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
-	token = <%= print("GitHub API Token: "); STDOUT.flush; STDIN.gets.chomp %>
+  user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
 [rerere]
-	enabled = 1
+  enabled = 1
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [rebase]
   autosquash = true
