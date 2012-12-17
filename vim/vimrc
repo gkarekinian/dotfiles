@@ -59,3 +59,7 @@ set colorcolumn=80
 " Theme
 set background=dark
 colorscheme solarized
+
+" Remap esc. to the most useless key on a Macbook keyboard
+imap § <C-[>
+cmap § <C-[>
