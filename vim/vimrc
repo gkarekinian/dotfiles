@@ -6,6 +6,11 @@ syntax enable
 set encoding=utf-8
 set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
+set ruler                       " Show cursor position.
+set title                       " Set the terminal's title
+set scrolloff=3                 " Show 3 lines of context around the cursor.
+set laststatus=2                " Show the status line all the time
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 "" Whitespace
 set nowrap                      " don't wrap lines
