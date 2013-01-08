@@ -2,58 +2,21 @@
 call pathogen#infect()
 
 set nocompatible
-syntax enable
 set encoding=utf-8
-set showcmd                     " display incomplete commands
-filetype plugin indent on       " load file type plugins + indentation
-set ruler                       " Show cursor position.
 set title                       " Set the terminal's title
-set scrolloff=3                 " Show 3 lines of context around the cursor.
-set laststatus=2                " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 "" Whitespace
 set nowrap                      " don't wrap lines
-set tabstop=2 shiftwidth=2      " a tab is two spaces
-set expandtab                   " use spaces, not tabs
-set backspace=indent,eol,start  " backspace through everything in insert mode
-
-"" Searching
-set hlsearch                    " highlight matches
-set incsearch                   " incremental searching
-set ignorecase                  " searches are case insensitive...
-set smartcase                   " ... unless they contain at least one capital letter
-
-" Directories for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
 
 "" Line numbers
 set number
-
-" Allow undoing after quitting
-set undodir=~/.vim/undodir
-set undofile
-set undolevels=1000
-
-" easier navigation between split windows
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-
-"" use comma as <Leader> key instead of backslash
-let mapleader=","
 
 " configure ctrlp
 let g:ctrlp_map = '<Leader>p'                  " keyboard shortcur
 let g:ctrlp_working_path_mode = 2              " set the working dir at the nearest ancestor that contains .git
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so " ignore some files
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files'] " use git to list files (faster)
-
-" autocomplete menu in commands
-set wildmenu
-set wildmode=list:longest
 
 " <Leader> + space clears highlights
 nnoremap <leader><space> :noh<cr>
