@@ -61,3 +61,6 @@
 [submodule "vim/bundle/chef"]
 	path = vim/bundle/chef
 	url = https://github.com/t9md/vim-chef.git
+[submodule "vim/bundle/sleuth"]
+	path = vim/bundle/sleuth
+	url = git://github.com/tpope/vim-sleuth.git
