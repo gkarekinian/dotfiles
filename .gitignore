@@ -1,4 +1,4 @@
-vim/.netrwhist
-vim/.VimballRecord
-bash/chef
-cache/vim
+/vim/.netrwhist
+/vim/.VimballRecord
+/cache/
+/bash/chef
