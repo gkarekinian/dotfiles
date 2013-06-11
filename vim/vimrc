@@ -4,22 +4,10 @@ call pathogen#infect()
 set nocompatible
 set encoding=utf-8
 set title                       " Set the terminal's title
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 "" Whitespace
 set nowrap                      " don't wrap lines
-
-"" Line numbers
-set number
-
-" configure ctrlp
-let g:ctrlp_map = '<Leader>p'                  " keyboard shortcur
-let g:ctrlp_working_path_mode = 2              " set the working dir at the nearest ancestor that contains .git
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so " ignore some files
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files'] " use git to list files (faster)
-
-" <Leader> + space clears highlights
-nnoremap <leader><space> :noh<cr>
 
 " line at 80th character
 set colorcolumn=80
@@ -28,6 +16,20 @@ set colorcolumn=80
 set background=dark
 colorscheme solarized
 
-" Remap esc. to the most useless key on a Macbook keyboard
+" Remap esc. to the most useless key on a Mac keyboard
 imap § <C-[>
 cmap § <C-[>
+
+set list " show <Tab> as ^I and end-of-line as $
+
+" Filetypes
+" Better git commit support
+autocmd Filetype gitcommit setlocal spell textwidth=72
+" bats is just bash
+autocmd BufNewFile,BufRead *.bats set filetype=bash
+
+" Plugins
+" configure ctrlp
+let g:ctrlp_working_path_mode = 2              " set the working dir at the nearest ancestor that contains .git
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so " ignore some files
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files'] " use git to list files (faster)
