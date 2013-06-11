@@ -33,3 +33,7 @@ autocmd BufNewFile,BufRead *.bats set filetype=bash
 let g:ctrlp_working_path_mode = 2              " set the working dir at the nearest ancestor that contains .git
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so " ignore some files
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files'] " use git to list files (faster)
+
+" Enable global undo dir
+set undofile
+set undodir=~/.vim/undo/
