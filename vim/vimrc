@@ -14,7 +14,7 @@ set colorcolumn=80
 
 " Theme
 set background=dark
-colorscheme solarized
+colorscheme Tomorrow-Night-Bright
 
 " Remap esc. to the most useless key on a Mac keyboard
 imap § <C-[>
