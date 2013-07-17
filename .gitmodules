@@ -76,3 +76,15 @@
 [submodule "vim/bundle/golang"]
 	path = vim/bundle/golang
 	url = git@github.com:jnwhiteh/vim-golang.git
+[submodule "vim/bundle/tmux-navigator"]
+	path = vim/bundle/tmux-navigator
+	url = git@github.com:christoomey/vim-tmux-navigator.git
+[submodule "vim/bundle/wombat256mod"]
+	path = vim/bundle/wombat256mod
+	url = git@github.com:michalbachowski/vim-wombat256mod.git
+[submodule "vim/bundle/signify"]
+	path = vim/bundle/signify
+	url = https://github.com/mhinz/vim-signify.git
+[submodule "vim/bundle/distinguished"]
+	path = vim/bundle/distinguished
+	url = https://github.com/Lokaltog/vim-distinguished.git
