@@ -70,15 +70,9 @@
 [submodule "vim/bundle/splitjoin"]
 	path = vim/bundle/splitjoin
 	url = git://github.com/AndrewRadev/splitjoin.vim.git
-[submodule "vim/bundle/gitgutter"]
-	path = vim/bundle/gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
 [submodule "vim/bundle/dispatch"]
 	path = vim/bundle/dispatch
 	url = git://github.com/tpope/vim-dispatch.git
 [submodule "vim/bundle/golang"]
 	path = vim/bundle/golang
 	url = git@github.com:jnwhiteh/vim-golang.git
-[submodule "vim/bundle/floobits-vim"]
-	path = vim/bundle/floobits-vim
-	url = git@github.com:Floobits/floobits-vim.git
