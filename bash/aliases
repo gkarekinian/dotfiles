@@ -15,8 +15,6 @@ alias gl="git pull"
 alias gp="git push"
 alias gst="git status -sb"
 
-alias gh="github"
-
 alias ifconfig.me="curl ifconfig.me"
 
 # hub, see http://defunkt.io/hub/
