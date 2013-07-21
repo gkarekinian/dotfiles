@@ -18,7 +18,9 @@ alias gst="git status -sb"
 alias ifconfig.me="curl ifconfig.me"
 
 # hub, see http://defunkt.io/hub/
-eval "$(hub alias -s)"
+if [ "$(which hub)" != '' ]; then
+  alias git=hub
+fi
 
 alias bex="bundle exec"
 
