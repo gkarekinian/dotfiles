@@ -5,3 +5,7 @@ fi
 if [[ -d /usr/local/share/npm/bin ]]; then
   PATH="/usr/local/share/npm/bin:$PATH"
 fi
+
+export GOPATH="$HOME/code/go"
+export PATH="$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin"
+
