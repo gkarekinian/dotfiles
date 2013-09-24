@@ -76,9 +76,6 @@
 [submodule "vim/bundle/golang"]
 	path = vim/bundle/golang
 	url = git@github.com:jnwhiteh/vim-golang.git
-[submodule "vim/bundle/tmux-navigator"]
-	path = vim/bundle/tmux-navigator
-	url = git@github.com:christoomey/vim-tmux-navigator.git
 [submodule "vim/bundle/wombat256mod"]
 	path = vim/bundle/wombat256mod
 	url = git@github.com:michalbachowski/vim-wombat256mod.git
