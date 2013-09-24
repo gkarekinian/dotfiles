@@ -88,3 +88,6 @@
 [submodule "vim/bundle/distinguished"]
 	path = vim/bundle/distinguished
 	url = https://github.com/Lokaltog/vim-distinguished.git
+[submodule "vim/bundle/copy-as-rtf"]
+	path = vim/bundle/copy-as-rtf
+	url = https://github.com/zerowidth/vim-copy-as-rtf
