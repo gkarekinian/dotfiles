@@ -17,12 +17,16 @@ alias gst="git status -sb"
 
 alias ifconfig.me="curl ifconfig.me"
 
+alias flip="echo '(╯°□°）╯︵ ┻━┻'"
+
 # hub, see http://defunkt.io/hub/
 if [ "$(which hub)" != '' ]; then
   alias git=hub
 fi
 
 alias bex="bundle exec"
+
+alias xcodebuildunsigned="xcodebuild CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=NO"
 
 # Import vim plugin using Pathogen
 function importvimplugin {
