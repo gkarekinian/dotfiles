@@ -37,3 +37,6 @@ let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files'] " use git to list 
 " Enable global undo dir
 set undofile
 set undodir=~/.vim/undo/
+
+" System clipboard integration
+set clipboard=unnamed
