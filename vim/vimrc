@@ -40,3 +40,8 @@ set undodir=~/.vim/undo/
 
 " System clipboard integration
 set clipboard=unnamed
+
+" Relative line numbers
+set relativenumber number
+autocmd InsertEnter * set number norelativenumber
+autocmd InsertLeave * set relativenumber number
