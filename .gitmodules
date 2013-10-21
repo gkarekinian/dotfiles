@@ -82,9 +82,9 @@
 [submodule "vim/bundle/signify"]
 	path = vim/bundle/signify
 	url = https://github.com/mhinz/vim-signify.git
-[submodule "vim/bundle/distinguished"]
-	path = vim/bundle/distinguished
-	url = https://github.com/Lokaltog/vim-distinguished.git
 [submodule "vim/bundle/copy-as-rtf"]
 	path = vim/bundle/copy-as-rtf
 	url = https://github.com/zerowidth/vim-copy-as-rtf
+[submodule "vim/bundle/airline"]
+	path = vim/bundle/airline
+	url = https://github.com/bling/vim-airline.git
