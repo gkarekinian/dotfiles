@@ -4,7 +4,6 @@ call pathogen#infect()
 set nocompatible
 set encoding=utf-8
 set title                       " Set the terminal's title
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 "" Whitespace
 set nowrap                      " don't wrap lines
@@ -42,3 +41,6 @@ set undodir=~/.vim/undo/
 set relativenumber number
 autocmd InsertEnter * set number norelativenumber
 autocmd InsertLeave * set relativenumber number
+
+" Not needed because of airline
+set noshowmode
