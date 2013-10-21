@@ -15,10 +15,6 @@ set colorcolumn=80
 set background=dark
 colorscheme Tomorrow-Night-Bright
 
-" Remap esc. to the most useless key on a Mac keyboard
-imap § <C-[>
-cmap § <C-[>
-
 set list " show <Tab> as ^I and end-of-line as $
 
 " Filetypes
