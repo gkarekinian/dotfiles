@@ -38,9 +38,6 @@ let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files'] " use git to list 
 set undofile
 set undodir=~/.vim/undo/
 
-" System clipboard integration
-set clipboard=unnamed
-
 " Relative line numbers
 set relativenumber number
 autocmd InsertEnter * set number norelativenumber
