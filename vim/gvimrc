@@ -1,9 +1,10 @@
 set gfn=Menlo\ Regular:h14
-set linespace=2
 set antialias
 
-" Don't beep
-set visualbell
+set visualbell     " Don't beep
 
-" Start without the toolbar
-set guioptions-=T
+set gcr=n:blinkon0 " Don't blick the cursor
+
+set guioptions-=T  " no toolbar
+set guioptions=r   " no scrollbars
+set fullscreen
