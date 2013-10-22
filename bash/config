@@ -27,6 +27,3 @@ export GREP_OPTIONS='--color=auto'
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
 shopt -s histappend
-
-# 1.9 mode for Rubinius
-export RBXOPT=-X19
