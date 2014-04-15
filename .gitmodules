@@ -58,9 +58,6 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule "vim/bundle/chef"]
-	path = vim/bundle/chef
-	url = https://github.com/t9md/vim-chef.git
 [submodule "vim/bundle/sensible"]
 	path = vim/bundle/sensible
 	url = git://github.com/tpope/vim-sensible.git
@@ -88,3 +85,18 @@
 [submodule "vim/bundle/airline"]
 	path = vim/bundle/airline
 	url = https://github.com/bling/vim-airline.git
+[submodule "vim/bundle/toml"]
+	path = vim/bundle/toml
+	url = https://github.com/cespare/vim-toml.git
+[submodule "vim/bundle/codereview"]
+	path = vim/bundle/codereview
+	url = https://github.com/codegram/vim-codereview.git
+[submodule "vim/bundle/patchreview-vim"]
+	path = vim/bundle/patchreview-vim
+	url = https://github.com/junkblocker/patchreview-vim.git
+[submodule "vim/bundle/sideways"]
+	path = vim/bundle/sideways
+	url = git@github.com:AndrewRadev/sideways.vim.git
+[submodule "vim/bundle/ag"]
+	path = vim/bundle/ag
+	url = git@github.com:rking/ag.vim.git
