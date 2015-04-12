@@ -1,10 +1,10 @@
-set gfn=Menlo\ Regular:h14
+set gfn=Inconsolata-dz\ for\ Powerline:h14
 set antialias
 
 set visualbell     " Don't beep
 
-set gcr=n:blinkon0 " Don't blick the cursor
-
 set guioptions-=T  " no toolbar
 set guioptions=r   " no scrollbars
 set fullscreen
+
+colorscheme ir_black
