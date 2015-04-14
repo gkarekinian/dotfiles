@@ -1,0 +1,10 @@
+color status black color214
+
+set mbox       = "+5apps/INBOX"
+set postponed  = "+5apps/Drafts"
+set record     = "+5apps/Sent"
+
+set from       = "greg@5apps.com"
+set sendmail   = "/usr/local/bin/msmtp -a 5apps.com"
+
+# set signature   = "~/.mutt/5apps.signature"

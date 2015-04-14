@@ -1,0 +1,205 @@
+set mbox_type   = Maildir
+set folder      = "~/Mail"
+
+# Read account configuration on folder change:
+folder-hook +karekinian/* source ~/.mutt/karekinian.muttrc
+folder-hook +5apps/* source ~/.mutt/5apps.muttrc
+folder-hook +5apps_ops/* source ~/.mutt/5apps_ops.muttrc
+
+mailboxes +karekinian/INBOX +karekinian/INBOX.Archive \
+          +karekinian/INBOX.alertbox +karekinian/INBOX.cryptogram \
+          +karekinian/INBOX.devops_weekly +karekinian/INBOX.docker_weekly \
+          +karekinian/INBOX.ember_weekly +karekinian/INBOX.html5_weekly \
+          +karekinian/INBOX.javascript_weekly +karekinian/INBOX.ruby_weekly \
+          +karekinian/INBOX.status_code +5apps/INBOX +5apps_ops/INBOX
+
+# Load the default account
+source ~/.mutt/karekinian.muttrc
+
+# Sending
+set realname    = "Greg Karékinian"
+set use_from
+set envelope_from
+
+# Unless your signature file already contains sigdashes "-- " (without
+# quotation marks) you should enable this option:
+set sig_dashes  = "yes"
+
+set editor      = "vim -c 'set tw=70 et' -c 'set spell' '+/^$' "
+set edit_headers # See the headers when editing
+
+set quit # No confirmation
+
+# sort/threading
+set sort        = threads
+set sort_aux    = reverse-last-date-received
+set sort_re
+
+# Formats
+set date_format   = "!%A, %Y-%m-%d at %H:%M:%S %Z"
+set index_format  = "%4C %Z %{%b %d %H:%M} %-14.14L %?l?%4l&%4c? %s"
+
+# In the first step we are going to weed all headers:
+ignore *
+
+# In the second step we remove the desired headers from the ignore-list:
+unignore date: from: to: subject: cc: reply-to:
+
+# Finally we specify the order for displaying headers:
+hdr_order date: from: to: subject: cc: reply-to:
+
+# Pager View Options ---------------------------------
+set pager_index_lines = 5 # number of index lines to show
+set pager_context     = 3 # number of context lines to show
+set menu_scroll           # scroll in menus
+set tilde                 # show tildes like in vim
+unset markers             # no ugly plus signs
+set smart_wrap            # Don't wrap mid-word
+set status_on_top         # Move the shortcuts to the bottom of the screen
+set noconfirmappend       # don't ask me if i want to append to mailboxes
+set nohelp                # Don't show help
+
+# Sending
+set include               # include message in replies
+set fast_reply            # skip to compose when replying
+
+alternative_order text/plain text/enriched text/html
+
+# Vim keybindings
+bind pager j  next-line
+bind pager k  previous-line
+bind pager t  display-toggle-weed
+bind index gg first-entry
+bind index G  last-entry
+
+bind index A  group-reply
+bind pager A  group-reply
+
+# Sync email
+macro index I "<shell-escape>offlineimap -o<enter>"           "run offlineimap to sync all mail"
+macro index i "<shell-escape>offlineimap -qf INBOX -o<enter>" "run offlineimap to sync inbox"
+
+# Saner copy/move dialogs
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# Fast inbox switch
+macro index g5 "<change-folder>+5apps/INBOX<enter>"
+macro index gk "<change-folder>+karekinian/INBOX<enter>"
+macro index go "<change-folder>+5apps_ops/INBOX<enter>"
+
+# Sidebar
+# set sidebar_visible = no # Hide by default. b to toggle it
+# set sidebar_width   = 36
+# color sidebar_new blue default
+# bind index \Cj sidebar-next
+# bind index \Ck sidebar-prev
+# bind index \Cl sidebar-open
+# # b toggles sidebar
+# macro index b '<enter-command>toggle sidebar_visible<enter>'
+# macro pager b '<enter-command>toggle sidebar_visible<enter>'
+
+# Colors
+color hdrdefault color242 color255
+color header     black    color255 "^(From|Subject)"
+color status     white    blue
+color quoted     color33  default
+color quoted1    color37  default
+color quoted2    color136 default
+color quoted3    color160 default
+color quoted4    color166 default
+color signature  color240 default
+color index      color33  default  "~U"         # unread
+color index      color33  default  "~N"         # new
+color index      red      default  "~D(!~p|~p)" # deleted
+color index      yellow   default  "~F"         # flagged
+color tree       color240 default
+color normal     default  default
+color error      white    red
+color tilde      color142 color233
+color indicator  default  color240
+
+# Links
+color body       color33  color233 "(finger|ftp|http|https|news|telnet)://[^ >]*"
+color body       color111 color233 "<URL:[^ ]*>"
+color body       color111 color233 "www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_./~a-z0-9]+)?"
+color body       color111 color233 "mailto: *[^ ]+\(\\i?subject=[^ ]+\)?"
+color body       color111 color233 "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+mono bold        bold
+mono underline   underline
+mono indicator   reverse
+mono error       bold
+
+# GPG colors
+color body red      default "(BAD signature)"
+color body green    default "(Good signature)"
+color body green    default "^gpg: Good signature .*"
+color body color240 default "^gpg: "
+color body red      default "^gpg: BAD signature from.*"
+mono  body bold     "^gpg: Good signature"
+mono  body bold     "^gpg: BAD signature from.*"
+
+# GPG
+set pgp_decode_command       = "gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
+set pgp_verify_command       = "gpg --no-verbose --batch --output - --verify %s %f"
+set pgp_decrypt_command      = "gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
+set pgp_sign_command         = "gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command    = "gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_encrypt_only_command = "pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0xDE3C3515 -- -r %r -- %f"
+set pgp_encrypt_sign_command = "pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0xDE3C3515 -- -r %r -- %f"
+set pgp_import_command       = "gpg --no-verbose --import -v %f"
+set pgp_export_command       = "gpg --no-verbose --export --armor %r"
+set pgp_verify_key_command   = "gpg --no-verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command = "gpg --no-verbose --batch --with-colons --list-keys %r"
+set pgp_list_secring_command = "gpg --no-verbose --batch --with-colons --list-secret-keys %r"
+set pgp_auto_decode          = yes
+
+# specify the uid to use when encrypting/signing
+set pgp_sign_as              = 0x4F06CFDC
+
+# this set the number of seconds to keep in memory the passphrase used to
+# encrypt/sign the more the less secure it will be
+set pgp_timeout              = 1
+
+# it's a regexp used against the GPG output: if it matches some line of the
+# output then mutt considers the message a good signed one (ignoring the GPG
+# exit code)
+set pgp_good_sign            = "^gpg: Good signature from"
+
+# mutt uses by default PGP/GPG to sign/encrypt messages
+# if you want to use S-mime instead set the smime_is_default variable to yes
+# automatically sign all outgoing messages
+set crypt_autosign
+# sign only replies to signed messages
+set crypt_replysign
+# automatically encrypt outgoing messages
+set crypt_autoencrypt        = no
+# encrypt only replies to signed messages
+set crypt_replyencrypt       = yes
+# encrypt and sign replies to encrypted messages
+set crypt_replysignencrypted = yes
+# automatically verify the sign of a message when opened
+set crypt_verify_sig         = yes
+
+# HTML
+set mailcap_path             = "~/.mutt/mailcap"
+set mailcap_sanitize         = yes
+auto_view text/html                                  # view html automatically
+alternative_order text/plain text/enriched text/html # save html for last
+
+# Address Book integration. ctrl+t to query
+set query_command="/usr/local/bin/lbdbq '%s'"
+
+# Links
+macro index,pager \Cu ":set pipe_decode\n|urlview\n:unset pipe_decode\n"\
+
+# Sending
+set sendmail_wait    = 10        # don't wait for sending to complete
+
+# t-prot: http://www.escape.de/~tolot/mutt/
+# set display_filter="t-prot -cemt --pgp-move -Mmutt"
+
+set sleep_time = 0 # be fast
+set wait_key = no  # Don't ask to press a key after running an external command
+set abort_nosubject = no # Don't prompt when empty subject

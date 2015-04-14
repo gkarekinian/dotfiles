@@ -1,0 +1,12 @@
+color status default blue
+
+set spoolfile   = "+karekinian/INBOX"
+set mbox        = "+karekinian/INBOX"
+set postponed   = "+karekinian/INBOX.Drafts"
+set record      = "+karekinian/INBOX.Sent Items"
+
+set from        = "greg@karekinian.com"
+set sendmail    = "/usr/local/bin/msmtp -a karekinian.com"
+
+# set signature   = "~/.mutt/karekinian.signature"
+
