@@ -1,0 +1,21 @@
+new -s work
+splitw -h mutt
+select-pane -L
+
+# 5apps
+neww -t 2 -c ~/code/5apps/chef
+splitw -h -c ~/code/5apps/chef
+splitw -v -c ~/code/5apps/chef
+select-pane -L
+splitw -v -c ~/code/5apps/chef
+select-pane -U
+
+neww -t 3
+splitw -h -c ~/code
+splitw -v -c ~/code
+select-pane -L
+splitw -v -c ~/code
+select-pane -U
+
+selectw -t 1
+
