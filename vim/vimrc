@@ -2,49 +2,37 @@ set nocompatible
 
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-sleuth'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'bling/vim-airline'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mhinz/vim-signify'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'zerowidth/vim-copy-as-rtf'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'vim-scripts/lua.vim'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-lua-ftplugin'
-Plugin 'twerth/ir_black'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git', { 'for': ['git', 'gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail'] }
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-rake', { 'for': 'ruby' }
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'tpope/vim-bundler', { 'for': 'ruby' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'rking/ag.vim', { 'on': 'Ag' }
+Plug 'scrooloose/syntastic', { 'for': ['javascript', 'css', 'ruby'] }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'zerowidth/vim-copy-as-rtf', { 'on': 'CopyRTF' }
+" Plug 'vim-scripts/taglist.vim'
+Plug 'vim-scripts/lua.vim', { 'for': 'lua' }
+Plug 'xolox/vim-lua-ftplugin', { 'for': 'lua' }
+Plug 'xolox/vim-misc', { 'for': 'lua' }
+filetype plugin indent on " required!
+" Add plugins to &runtimepath
+call plug#end()
 
 set encoding=utf-8
 set title                       " Set the terminal's title
@@ -57,7 +45,7 @@ set colorcolumn=80
 
 " Theme
 set background=dark
-colorscheme Tomorrow-Night-Bright
+colorscheme Tomorrow-Night-Eighties
 
 set list " show <Tab> as ^I and end-of-line as $
 
@@ -70,8 +58,15 @@ autocmd Filetype markdown setlocal spell
 autocmd BufNewFile,BufRead *.bats set filetype=bash
 " handlebars is just html
 autocmd BufNewFile,BufRead *.hbs set filetype=html
+" Crystal is almost Ruby
+autocmd BufNewFile,BufRead *.cs set filetype=ruby
+" Markdown, not Modula-2
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+" ES6 is JS
+autocmd BufNewFile,BufReadPost *.es6 set filetype=javascript
 
 " Plugins
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ruby', 'javascript']
 " configure ctrlp
 let g:ctrlp_working_path_mode = 2              " set the working dir at the nearest ancestor that contains .git
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so " ignore some files
@@ -86,28 +81,9 @@ set relativenumber number
 autocmd InsertEnter * set number norelativenumber
 autocmd InsertLeave * set relativenumber number
 
-" Not needed because of airline
-set noshowmode
-
-" Dispatch
-autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
-
-map <Tab> :Rake<CR>
-map § :Dispatch<CR>
-
-" Automatically remove trailing-space
-" autocmd BufWritePre * :%s/\s\+$//e
-
 " Insert only one space when joining lines that contain sentence-terminating
 " punctuation like `.`.
 set nojoinspaces
-
-" Sideways plugin
-" nnoremap <c-h> :SidewaysLeft<cr>
-" nnoremap <c-l> :SidewaysRight<cr>
-
-" syntastic
-" let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 " utf-8 list chars for tabs, trailing spaces
 if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
@@ -115,6 +91,14 @@ if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
 endif
 
 " faster syntax highlighting
-set regexpengine=1
+" set regexpengine=1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 let g:airline_powerline_fonts = 1
